@@ -1,5 +1,5 @@
 <h1>Authors</h1>
 
 <% @authors.each do |author| %>
-  <h3><%= author.name %></h3>
+  <h3><a href="/parents/<%= author.id %>"><%= author.name %></a></h3>
 <% end %>
