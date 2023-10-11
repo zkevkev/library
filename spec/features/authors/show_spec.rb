@@ -8,7 +8,7 @@ RSpec.describe "authors show page", type: :feature do
 
   it 'shows the author with that id including their attributes' do
     visit "parents/#{@author1.id}"
-
+    
     expect(page).to have_content(@author1.name)
     expect(page).to have_content("Author pushing daisies: #{@author1.dead}")
     expect(page).to have_content("Copies Sold: #{@author1.sales}")
