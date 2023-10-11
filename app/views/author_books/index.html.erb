@@ -1,0 +1,9 @@
+<h1>Books Written by: @author.name</h1>
+
+<% @books.each do |book| %>
+  <h3><%= book.name %></h3>
+
+  <p><b>This copy is new: </b><%= book.new %></p>
+
+  <p><b>Year published: </b><%= book.publish_date %></p>
+<% end %>

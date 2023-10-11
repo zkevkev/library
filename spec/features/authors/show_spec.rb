@@ -12,6 +12,5 @@ RSpec.describe "authors show page", type: :feature do
     expect(page).to have_content(@author1.name)
     expect(page).to have_content("Author pushing daisies: #{@author1.dead}")
     expect(page).to have_content("Copies Sold: #{@author1.sales}")
-
   end
 end
