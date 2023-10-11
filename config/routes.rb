@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/", to: "welcome#index"
   get "/parents", to: "authors#index"
   get "/parents/:id", to: "authors#show"
+  get "/child_table_name", to: "books#index"
 end
