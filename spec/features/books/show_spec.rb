@@ -6,7 +6,7 @@ RSpec.describe 'books show page', type: :feature do
     @book2 = Book.create!(name: 'King Lear', new: true, publish_date: 1606)
   end
 
-  it 'shows ' do
+  it 'shows a specific book attributes' do
     visit "/child_table_name/#{@book1.id}"
 
     expect(page).to have_content("#{@book1.name}")
