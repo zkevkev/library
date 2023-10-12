@@ -15,14 +15,26 @@ class AuthorsController < ApplicationController
   def create
     author = Author.create!({
       name: params[:name],
-      dead: params[:dead] == 'true',
+      dead: params[:dead] == "true",
       sales: params[:copies_sold]
     })
 
-    redirect_to '/parents'
+    redirect_to "/parents"
   end
 
   def edit
     @author = Author.find(params[:id])
+  end
+
+  def update
+    author = Author.find(params[:id])
+    author.update({
+      name: params[:name],
+      dead: params[:dead] == "true",
+      sales: params[:copies_sold]
+    })
+
+    author.save
+    redirect_to "/parents/#{author.id}"
   end
 end

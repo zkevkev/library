@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/parents/:id", to: "authors#show"
   post "/parents", to: "authors#create"
   get "/parents/:id/edit", to: "authors#edit"
+  patch "/parents/:id/", to: "authors#update"
 
   get "/child_table_name", to: "books#index"
   get "/child_table_name/:id", to: "books#show"

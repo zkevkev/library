@@ -1,0 +1,13 @@
+<form action="/parents/<%= @author.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p><b>Edit Author</b></p>
+  <input type='text' id='name' name='name' value='name'/><br/>
+  <input type='number' id='copies_sold' name='copies_sold' min='1'/>
+  <label for='copies_sold'> copies sold</label><br/>
+  <input type='radio' id='dead' name='doa' value='true'>
+  <label for='dead'> author is dead</label><br/>
+  <input type='radio' id='alive' name='doa' value='false'>
+  <label for='alive'> author is alive</label><br/>
+  <button type='submit' name='commit' value='Submit'>Submit</>
+</form>
