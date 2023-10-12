@@ -11,6 +11,7 @@ RSpec.describe 'books index page', type: :feature do
   it 'shows an index of books, including their attributes' do
     visit "/child_table_name"
 
+    expect(page).to have_content("Books")
     expect(page).to have_content("#{@book1.name}")
     expect(page).to have_content("This copy is new: #{@book1.new}")
     expect(page).to have_content("Year published: #{@book1.publish_date}")

@@ -1,7 +1,11 @@
+<a href="/child_table_name">Books</a>
+
 <a href="/parents">Authors Index</a>
 
 <h1><%= @author.name %></h1>
 
 <p><b>Author pushing daisies: </b><%= @author.dead %></p>
 
-<p><b>Copies Sold: </b><%= @author.sales %></p>
+<p><b>Copies sold: </b><%= @author.sales %></p>
+
+<p><b>Books in stock: </b><%= @author.books.size %>
