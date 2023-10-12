@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/parents", to: "authors#index"
   get "/parents/new", to: "authors#new"
   get "/parents/:id", to: "authors#show"
+  post "/parents", to: "authors#create"
 
   get "/child_table_name", to: "books#index"
   get "/child_table_name/:id", to: "books#show"
