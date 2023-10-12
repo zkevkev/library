@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get "/child_table_name/:id", to: "books#show"
 
   get "/parents/:parent_id/child_table_name", to: "author_books#index"
+  get "/parents/:parent_id/child_table_name/new", to: "author_books#new"
+  post "/parents/:parent_id/child_table_name", to: "author_books#create"
 end

@@ -34,4 +34,11 @@ RSpec.describe 'authors books index page', type: :feature do
 
     expect(assert_current_path("/parents")).to be true
   end
+
+  it 'create child link navigates to new book page' do
+    visit "/parents/#{@author1.id}/child_table_name"
+    click_link "Create Child"
+
+    expect(assert_current_path("/parents/#{@author1.id}/child_table_name/new")).to be true
+  end
 end
