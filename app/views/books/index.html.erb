@@ -5,9 +5,12 @@
 <h1>Books</h1>
 
 <% @books.each do |book| %>
-  <h3><a href="/child_table_name/<%= book.id %>"><%= book.name %></a></h3>
+  <% if book.new %>
+    
+    <h3><a href="/child_table_name/<%= book.id %>"><%= book.name %></a></h3>
 
-  <p><b>This copy is new: </b><%= book.new %></p>
+    <p><b>This copy is new: </b><%= book.new %></p>
 
-  <p><b>Year published: </b><%= book.publish_date %></p>
+    <p><b>Year published: </b><%= book.publish_date %></p>
+  <% end %>
 <% end %>

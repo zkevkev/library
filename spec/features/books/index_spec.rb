@@ -8,13 +8,13 @@ RSpec.describe 'books index page', type: :feature do
     @book2 = @author2.books.create!(name: 'King Lear', new: true, publish_date: 1606)
   end
 
-  it 'shows an index of books, including their attributes' do
+  it 'shows an index of books, including their attributes, only if the book is new' do
     visit "/child_table_name"
 
     expect(page).to have_content("Books")
-    expect(page).to have_content("#{@book1.name}")
-    expect(page).to have_content("This copy is new: #{@book1.new}")
-    expect(page).to have_content("Year published: #{@book1.publish_date}")
+    expect(page).not_to have_content("#{@book1.name}")
+    expect(page).not_to have_content("This copy is new: #{@book1.new}")
+    expect(page).not_to have_content("Year published: #{@book1.publish_date}")
     expect(page).to have_content("#{@book2.name}")
     expect(page).to have_content("This copy is new: #{@book2.new}")
     expect(page).to have_content("Year published: #{@book2.publish_date}")
