@@ -18,14 +18,14 @@ RSpec.describe "authors show page", type: :feature do
     expect(page).to have_content("Books in stock: #{@author1.books.size}")
   end
 
-  it 'books button navigates to books index' do
+  it 'books link navigates to books index' do
     visit "/parents/#{@author1.id}"
     click_link "Books"
     
     expect(assert_current_path("/child_table_name")).to be true
   end
 
-  it 'authors button navigates to authors index' do
+  it 'authors link navigates to authors index' do
     visit "/parents/#{@author1.id}"
     click_link "Authors"
 
