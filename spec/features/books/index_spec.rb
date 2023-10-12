@@ -19,4 +19,11 @@ RSpec.describe 'books index page', type: :feature do
     expect(page).to have_content("This copy is new: #{@book2.new}")
     expect(page).to have_content("Year published: #{@book2.publish_date}")
   end
+
+  it 'authors button navigates to authors index' do
+    visit "/child_table_name"
+    click_link "Authors"
+
+    expect(assert_current_path("/parents")).to be true
+  end
 end
