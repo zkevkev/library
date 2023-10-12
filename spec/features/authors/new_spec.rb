@@ -6,8 +6,7 @@ RSpec.describe 'authors new page', type: :feature do
     # do more research on within (should maybe be used here)
     fill_in 'name', with: 'Haruki Murakami'
     fill_in 'copies_sold', with: '100000000'
-    # change this to another input form, this is going to have issues
-    page.check('alive')
+    page.choose('alive')
     click_button 'Create Parent'
 
     expect(page).to have_content('Haruki Murakami') 
@@ -18,8 +17,7 @@ RSpec.describe 'authors new page', type: :feature do
     # do more research on within (should maybe be used here)
     fill_in 'name', with: 'Haruki Murakami'
     fill_in 'copies_sold', with: '100000000'
-    # change this to another input form, this is going to have issues
-    page.check('alive')
+    page.choose('alive')
     click_button 'Create Parent'
 
     expect(assert_current_path("/parents")).to be true
