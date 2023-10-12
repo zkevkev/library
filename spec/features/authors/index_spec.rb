@@ -10,6 +10,8 @@ RSpec.describe 'authors index page', type: :feature do
     visit "/parents"
 
     expect(page).to have_content(@author1.name)
+    expect(page).to have_content(@author1.created_at)
     expect(page).to have_content(@author2.name)
+    expect(page).to have_content(@author2.created_at)
   end
 end
