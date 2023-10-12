@@ -15,8 +15,8 @@ class AuthorsController < ApplicationController
   def create
     author = Author.create!({
       name: params[:name],
-      dead: params[:dead],
-      sales: params[:sales]
+      dead: params[:dead] == 'true',
+      sales: params[:copies_sold]
     })
 
     redirect_to '/parents'

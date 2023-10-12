@@ -5,10 +5,9 @@ RSpec.describe 'authors new page', type: :feature do
     visit "/parents/new"
     # do more research on within (should maybe be used here)
     fill_in 'name', with: 'Haruki Murakami'
-    fill_in 'copies sold', with: '100000000'
+    fill_in 'copies_sold', with: '100000000'
     page.check('alive')
     click_button 'Create Parent'
-    visit "/parents"
 
     expect(page).to have_content('Haruki Murakami') 
   end
@@ -17,7 +16,7 @@ RSpec.describe 'authors new page', type: :feature do
     visit "/parents/new"
     # do more research on within (should maybe be used here)
     fill_in 'name', with: 'Haruki Murakami'
-    fill_in 'copies sold', with: '100000000'
+    fill_in 'copies_sold', with: '100000000'
     page.check('alive')
     click_button 'Create Parent'
 
