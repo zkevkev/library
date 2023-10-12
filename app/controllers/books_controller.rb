@@ -6,4 +6,20 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
   end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update({
+      name: params[:name],
+      new: params[:new_or_old] == "true",
+      publish_date: params[:publish_date]
+    })
+
+    book.save
+    redirect_to "/child_table_name/#{book.id}"
+  end
 end

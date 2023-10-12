@@ -29,4 +29,11 @@ RSpec.describe 'books show page', type: :feature do
 
     expect(assert_current_path("/parents")).to be true
   end
+
+  it 'update book link navigates to books edit' do
+    visit "/child_table_name/#{@book1.id}"
+    click_link "Update Book"
+
+    expect(assert_current_path("/child_table_name/#{@book1.id}/edit")).to be true
+  end
 end
