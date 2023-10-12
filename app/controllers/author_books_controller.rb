@@ -5,10 +5,11 @@ class AuthorBooksController < ApplicationController
   end
 
   def new
+    @author = Author.find(params[:parent_id])
   end
 
   def create
-    author = Author.find(params[:id])
+    author = Author.find(params[:parent_id])
     book = author.books.create!({
       name: params[:name],
       new: params[:new] == "true",

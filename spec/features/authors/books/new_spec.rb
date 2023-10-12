@@ -29,6 +29,6 @@ RSpec.describe 'authors books new page', type: :feature do
     page.choose('old')
     click_button 'Create Child'
 
-    expect(assert_current_path("/parents/#{author1.id}/child_table_name")).to be true
+    expect(assert_current_path("/parents/#{@author1.id}/child_table_name")).to be true
   end
 end
