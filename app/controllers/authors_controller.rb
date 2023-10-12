@@ -21,4 +21,8 @@ class AuthorsController < ApplicationController
 
     redirect_to '/parents'
   end
+
+  def edit
+    @author = Author.find(params[:id])
+  end
 end

@@ -38,4 +38,11 @@ RSpec.describe "authors show page", type: :feature do
 
     expect(assert_current_path("/parents/#{@author1.id}/child_table_name")).to be true
   end
+
+  it 'update parent links to author edit form' do
+    visit "/parents/#{@author1.id}"
+    click_link "Update Parent"
+
+    expect(assert_current_path("/parents/#{@author1.id}/edit")).to be true
+  end
 end
