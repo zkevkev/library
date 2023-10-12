@@ -31,4 +31,11 @@ RSpec.describe "authors show page", type: :feature do
 
     expect(assert_current_path("/parents")).to be true
   end
+
+  it 'view books links to author_books index' do
+    visit "/parents/#{@author1.id}"
+    click_link "View Books"
+
+    expect(assert_current_path("/parents/#{@author1.id}/child_table_name")).to be true
+  end
 end
