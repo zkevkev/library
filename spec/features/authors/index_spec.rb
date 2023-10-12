@@ -6,15 +6,19 @@ RSpec.describe 'authors index page', type: :feature do
     @author2 = Author.create!(name: 'William Shakespeare', dead: true, sales: 2000000000)
   end
   
-  it 'shows an index of author names' do
+  it 'shows an index of author names and creation timestamps' do
     visit "/parents"
 
-    # refactor tests to use orderly
-    # expect(this).to appear_before(that)
     expect(page).to have_content(@author1.name)
     expect(page).to have_content(@author1.created_at)
     expect(page).to have_content(@author2.name)
     expect(page).to have_content(@author2.created_at)
+  end
+
+  it 'shows author names ordered by recently created' do
+    visit "/parents"
+    
+    expect(@author2.name).to appear_before(@author1.name)
   end
 
   it 'books link navigates to books index' do
