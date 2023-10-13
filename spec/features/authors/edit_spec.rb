@@ -9,12 +9,12 @@ RSpec.describe "authors edit page", type: :feature do
   it 'updates the author record upon submission' do
     visit "/parents/#{@author2.id}"
     click_link "Update Parent"
-    fill_in 'name', with: 'Haruki Murakami'
-    fill_in 'copies_sold', with: '100000000'
-    page.choose('alive')
-    click_button 'Submit'
+    fill_in "name", with: "Haruki Murakami"
+    fill_in "copies_sold", with: "100000000"
+    page.choose("alive")
+    click_button "Submit"
 
-    expect(page).to have_content('Haruki Murakami') 
+    expect(page).to have_content("Haruki Murakami") 
     expect(page).to have_content("Author pushing daisies: false")
     expect(page).to have_content("Copies sold: 100000000")
   end
@@ -22,10 +22,10 @@ RSpec.describe "authors edit page", type: :feature do
   it 'redirects to the author show page after updating' do
     visit "/parents/#{@author2.id}"
     click_link "Update Parent"
-    fill_in 'name', with: 'Haruki Murakami'
-    fill_in 'copies_sold', with: '100000000'
-    page.choose('alive')
-    click_button 'Submit'
+    fill_in "name", with: "Haruki Murakami"
+    fill_in "copies_sold", with: "100000000"
+    page.choose("alive")
+    click_button "Submit"
 
     expect(assert_current_path("/parents/#{@author2.id}")).to be true
   end
