@@ -29,8 +29,16 @@ RSpec.describe 'books index page', type: :feature do
 
   it 'update link next to books navigates to books edit form' do
     visit "/child_table_name"
-    click_link "Update this book (#{@book2.id})"
+    click_link "Update #{@book2.name}"
     
     expect(assert_current_path("/child_table_name/#{@book2.id}/edit")).to be true
+  end
+
+  it 'delete link deletes this record and refreshes' do
+    visit "/child_table_name"
+    click_button "Delete #{@book2.name}"
+
+    expect(assert_current_path("/child_table_name")).to be true
+    expect(page).not_to have_content(@book2.name)
   end
 end

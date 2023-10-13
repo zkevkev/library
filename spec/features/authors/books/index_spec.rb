@@ -35,9 +35,9 @@ RSpec.describe 'authors books index page', type: :feature do
     expect(assert_current_path("/parents")).to be true
   end
 
-  it 'create child link navigates to new book page' do
+  it 'add book link navigates to new book page' do
     visit "/parents/#{@author1.id}/child_table_name"
-    click_link "Create Child"
+    click_link "Add Book"
 
     expect(assert_current_path("/parents/#{@author1.id}/child_table_name/new")).to be true
   end
@@ -57,5 +57,13 @@ RSpec.describe 'authors books index page', type: :feature do
 
     expect(page).to have_content(@book1.name)
     expect(page).not_to have_content(@book2.name)
+  end
+
+  it 'delete link deletes this record and refreshes' do
+    visit "/parents/#{@author1.id}/child_table_name"
+    click_button "Delete #{@book1.name}"
+
+    expect(assert_current_path("/child_table_name")).to be true
+    expect(page).not_to have_content(@book1.name)
   end
 end

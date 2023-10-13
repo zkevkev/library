@@ -14,6 +14,12 @@
   <p><b>This copy is new: </b><%= book.new %></p>
 
   <p><b>Year published: </b><%= book.publish_date %></p>
+
+  <form action="/child_table_name/<%= book.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete <%= book.name %>"/>
+  </form>
 <% end %>
 
-<a href="/parents/<%= @author.id %>/child_table_name/new">Create Child</a>
+<a href="/parents/<%= @author.id %>/child_table_name/new">Add Book</a>

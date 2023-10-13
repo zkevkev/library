@@ -8,8 +8,13 @@
   <% if book.new %>
     
     <h3>
-    <a href="/child_table_name/<%= book.id %>"><%= book.name %></a>
-    <a href="/child_table_name/<%= book.id %>/edit">Update this book (<%= book.id %>)</a>
+      <a href="/child_table_name/<%= book.id %>"><%= book.name %></a>
+      <a href="/child_table_name/<%= book.id %>/edit">Update <%= book.name %></a>
+      <form action="/child_table_name/<%= book.id %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete <%= book.name %>"/>
+      </form>
     </h3>
 
     <p><b>This copy is new: </b><%= book.new %></p>
