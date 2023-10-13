@@ -28,14 +28,14 @@ RSpec.describe 'authors index page', type: :feature do
     expect(assert_current_path("/child_table_name")).to be true
   end
 
-  it 'new parent link navigates to new parent record form' do
+  it 'new parent link navigates to new author record form' do
     visit "/parents"
     click_link "New Parent"
 
     expect(assert_current_path("/parents/new")).to be true
   end
 
-  it 'update link next to authors navigates to parent edit form' do
+  it 'update link next to authors navigates to authors edit form' do
     visit "/parents"
     click_link "Update Agatha Christie"
 

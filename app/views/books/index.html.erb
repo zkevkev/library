@@ -7,7 +7,10 @@
 <% @books.each do |book| %>
   <% if book.new %>
     
-    <h3><a href="/child_table_name/<%= book.id %>"><%= book.name %></a></h3>
+    <h3>
+    <a href="/child_table_name/<%= book.id %>"><%= book.name %></a>
+    <a href="/child_table_name/<%= book.id %>/edit">Update this book (<%= book.id %>)</a>
+    </h3>
 
     <p><b>This copy is new: </b><%= book.new %></p>
 
