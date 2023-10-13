@@ -1,3 +1,8 @@
+<nav>
+<a href="/child_table_name">Books</a>
+<a href="/parents">Authors</a>
+</nav>
+
 <form action="/parents/<%= @author.id %>/child_table_name" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p><b>Enter a new book:</b></p>
