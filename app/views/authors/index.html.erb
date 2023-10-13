@@ -8,7 +8,13 @@
 
 <% @authors.each do |author| %>
   <h3>
-  <a href="/parents/<%= author.id %>"><%= author.name %></a> created: <%= author.created_at %>
-  <a href="/parents/<%= author.id %>/edit">Update <%= author.name %></a>
+    <a href="/parents/<%= author.id %>"><%= author.name %></a> created: <%= author.created_at %>
+    <a href="/parents/<%= author.id %>/edit">Update <%= author.name %></a>
+  
+    <form action="/parents/<%= author.id %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete <%= author.name %>"/>
+    </form>
   </h3>
 <% end %>

@@ -41,4 +41,12 @@ RSpec.describe 'authors index page', type: :feature do
 
     expect(assert_current_path("/parents/#{@author1.id}/edit")).to be true
   end
+
+  it 'delete link deletes this record and refreshes' do
+    visit "/parents"
+    click_button "Delete #{@author1.name}"
+
+    expect(assert_current_path("/parents")).to be true
+    expect(page).not_to have_content(@author1.name)
+  end
 end
