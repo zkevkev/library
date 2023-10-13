@@ -7,5 +7,8 @@
 <a href="/parents/new">New Parent</a>
 
 <% @authors.each do |author| %>
-  <h3><a href="/parents/<%= author.id %>"><%= author.name %></a> created: <%= author.created_at %></h3>
+  <h3>
+  <a href="/parents/<%= author.id %>"><%= author.name %></a> created: <%= author.created_at %>
+  <a href="/parents/<%= author.id %>/edit">Update <%= author.name %></a>
+  </h3>
 <% end %>

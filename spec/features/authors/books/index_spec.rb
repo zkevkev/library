@@ -47,6 +47,6 @@ RSpec.describe 'authors books index page', type: :feature do
     click_link "Sort Books"
 
     expect(@book1.name).to appear_before(@book2.name)
-    expect(assert_current_path("/parents/#{@author1.id}/child_table_name")).to be true
+    expect(assert_current_path("/parents/#{@author1.id}/child_table_name?sort=name")).to be true
   end
 end

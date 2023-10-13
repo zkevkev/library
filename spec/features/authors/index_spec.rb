@@ -34,4 +34,11 @@ RSpec.describe 'authors index page', type: :feature do
 
     expect(assert_current_path("/parents/new")).to be true
   end
+
+  it 'update link next to authors navigates to parent edit form' do
+    visit "/parents"
+    click_link "Update Agatha Christie"
+
+    expect(assert_current_path("/parents/#{@author1.id}/edit")).to be true
+  end
 end
