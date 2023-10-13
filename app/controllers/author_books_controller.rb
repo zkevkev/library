@@ -1,7 +1,7 @@
 class AuthorBooksController < ApplicationController
   def index
     @author = Author.find(params[:parent_id])
-    @books = @author.books
+    @books = @author.books.order(params[:sort])
   end
 
   def new
@@ -17,13 +17,5 @@ class AuthorBooksController < ApplicationController
     })
 
     redirect_to "/parents/#{book.author_id}/child_table_name"
-  end
-
-  def sort
-    @author = Author.find(params[:parent_id])
-    @books = @author.books
-    @books = @books.order(:name)
-
-    redirect_to "/parents/#{@author.id}/child_table_name"
   end
 end
