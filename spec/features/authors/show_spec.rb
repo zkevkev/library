@@ -46,7 +46,7 @@ RSpec.describe "authors show page", type: :feature do
     expect(assert_current_path("/parents/#{@author1.id}/edit")).to be true
   end
 
-  it 'delete author link deletes this record and redirects to the author index' do
+  it 'delete link deletes this record and redirects to the author index' do
     visit "/parents/#{@author1.id}"
     click_button "Delete"
 

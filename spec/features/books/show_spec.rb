@@ -36,4 +36,13 @@ RSpec.describe 'books show page', type: :feature do
 
     expect(assert_current_path("/child_table_name/#{@book1.id}/edit")).to be true
   end
+
+  it 'delete link deletes this record and redirects to the book index' do
+    visit "/child_table_name/#{@book2.id}"
+    save_and_open_page
+    click_button "Delete"
+
+    expect(assert_current_path("/child_table_name")).to be true
+    expect(page).not_to have_content(@book2.name)
+  end
 end

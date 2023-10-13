@@ -22,4 +22,10 @@ class BooksController < ApplicationController
     book.save
     redirect_to "/child_table_name/#{book.id}"
   end
+
+  def delete
+    Book.destroy(params[:id])
+
+    redirect_to "/child_table_name"
+  end
 end

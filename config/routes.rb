@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   post "/parents", to: "authors#create"
   get "/parents/:id/edit", to: "authors#edit"
   patch "/parents/:id", to: "authors#update"
-  delete '/parents/:id', to: 'authors#delete'
+  delete "/parents/:id", to: "authors#delete"
 
   get "/child_table_name", to: "books#index"
   get "/child_table_name/:id", to: "books#show"
   get "/child_table_name/:id/edit", to: "books#edit"
   patch "/child_table_name/:id", to: "books#update"
+  delete "/child_table_name/:id", to: "books#delete"
 
   get "/parents/:parent_id/child_table_name", to: "author_books#index"
   get "/parents/:parent_id/child_table_name/new", to: "author_books#new"
