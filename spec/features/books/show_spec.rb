@@ -39,7 +39,6 @@ RSpec.describe 'books show page', type: :feature do
 
   it 'delete link deletes this record and redirects to the book index' do
     visit "/child_table_name/#{@book2.id}"
-    save_and_open_page
     click_button "Delete"
 
     expect(assert_current_path("/child_table_name")).to be true
