@@ -53,4 +53,10 @@ RSpec.describe "authors show page", type: :feature do
     expect(assert_current_path("/parents")).to be true
     expect(page).not_to have_content(@author1.name)
   end
+
+  it 'has a count of books written by the author' do
+    visit "/parents/#{@author1.id}"
+    
+    expect(page).to have_content("Books in stock for #{@author1.name}: 2")
+  end
 end

@@ -1,11 +1,10 @@
 <nav>
-<a href="/child_table_name">Books</a>
-<a href="/parents">Authors</a>
+  <a href="/child_table_name">Books</a>
+  <a href="/parents">Authors</a>
 </nav>
 
 <h1>Books Written by: <%= @author.name %></h1>
 
-# research this more, need better understanding
 <%= link_to "Sort Books", :sort => "name" %>
 
 <% @books.each do |book| %>

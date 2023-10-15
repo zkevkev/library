@@ -8,7 +8,7 @@ RSpec.describe "authors edit page", type: :feature do
 
   it 'updates the author record upon submission' do
     visit "/parents/#{@author2.id}"
-    click_link "Update Parent"
+    click_link "Update Author"
     fill_in "name", with: "Haruki Murakami"
     fill_in "copies_sold", with: "100000000"
     page.choose("alive")
@@ -21,7 +21,7 @@ RSpec.describe "authors edit page", type: :feature do
 
   it 'redirects to the author show page after updating' do
     visit "/parents/#{@author2.id}"
-    click_link "Update Parent"
+    click_link "Update Author"
     fill_in "name", with: "Haruki Murakami"
     fill_in "copies_sold", with: "100000000"
     page.choose("alive")
