@@ -7,7 +7,7 @@ RSpec.describe 'authors new page', type: :feature do
     fill_in 'name', with: 'Haruki Murakami'
     fill_in 'copies_sold', with: '100000000'
     page.choose('alive')
-    click_button 'Create Parent'
+    click_button 'Create Author'
 
     expect(page).to have_content('Haruki Murakami') 
   end
@@ -18,7 +18,7 @@ RSpec.describe 'authors new page', type: :feature do
     fill_in 'name', with: 'Haruki Murakami'
     fill_in 'copies_sold', with: '100000000'
     page.choose('alive')
-    click_button 'Create Parent'
+    click_button 'Create Author'
 
     expect(assert_current_path("/parents")).to be true
   end
