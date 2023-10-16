@@ -1,9 +1,11 @@
 <nav>
-  <a href="/child_table_name">Books</a>
-  <a href="/parents">Authors</a>
+  <%= link_to "Books", "/child_table_name" %></br>
+  <%= link_to "Authors", "/parents" %>
 </nav>
 
 <h1>Books Written by: <%= @author.name %></h1>
+
+<%= link_to "Add Book", "/parents/#{@author.id}/child_table_name/new" %></br>
 
 <%= link_to "Sort Books", :sort_by => "name" %>
 
@@ -14,11 +16,7 @@
 
   <p><b>Year published: </b><%= book.publish_date %></p>
 
-  <form action="/child_table_name/<%= book.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete <%= book.name %>"/>
-  </form>
+  <%= form_with url: "/child_table_name/#{book.id}", method: :delete, local: true do |form| %>
+    <%= form.submit "Delete #{book.name}" %>
+  <% end %>
 <% end %>
-
-<a href="/parents/<%= @author.id %>/child_table_name/new">Add Book</a>

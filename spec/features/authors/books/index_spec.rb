@@ -47,7 +47,7 @@ RSpec.describe 'authors books index page', type: :feature do
     click_link "Sort Books"
 
     expect(@book1.name).to appear_before(@book2.name)
-    expect(assert_current_path("/parents/#{@author1.id}/child_table_name?sort=name")).to be true
+    expect(assert_current_path("/parents/#{@author1.id}/child_table_name?sort_by=name")).to be true
   end
 
   xit 'only shows books published after date input in threshold sort' do
@@ -62,7 +62,7 @@ RSpec.describe 'authors books index page', type: :feature do
   it 'delete link deletes this record and refreshes' do
     visit "/parents/#{@author1.id}/child_table_name"
     click_button "Delete #{@book1.name}"
-
+save_and_open_page
     expect(assert_current_path("/child_table_name")).to be true
     expect(page).not_to have_content(@book1.name)
   end

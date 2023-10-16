@@ -30,7 +30,7 @@ RSpec.describe 'authors index page', type: :feature do
 
   it 'new parent link navigates to new author record form' do
     visit "/parents"
-    click_link "New Parent"
+    click_link "New Author"
 
     expect(assert_current_path("/parents/new")).to be true
   end

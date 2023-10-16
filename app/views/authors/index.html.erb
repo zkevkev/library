@@ -1,20 +1,19 @@
 <nav>
-  <a href="/child_table_name">Books</a>
+  <%= link_to "Books", "/child_table_name" %>
 </nav>
 
 <h1>Authors</h1>
 
-<a href="/parents/new">New Parent</a>
+<%= link_to "New Author", "/parents/new" %>
 
 <% @authors.each do |author| %>
   <h3>
-    <a href="/parents/<%= author.id %>"><%= author.name %></a> created: <%= author.created_at %>
-    <a href="/parents/<%= author.id %>/edit">Update <%= author.name %></a>
+    <%= link_to "#{author.name}", "/parents/#{author.id}" %> created: <%= author.created_at %></br>
+    <%= link_to "Update #{author.name}", "/parents/#{author.id}/edit" %>
   
-    <form action="/parents/<%= author.id %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete <%= author.name %>"/>
-    </form>
+
+  <%= form_with url: "/parents/#{author.id}", method: :delete, local: true do |form| %>
+    <%= form.submit "Delete #{author.name}" %>
+  <% end %>
   </h3>
 <% end %>

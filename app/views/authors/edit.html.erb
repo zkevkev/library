@@ -1,6 +1,6 @@
 <nav>
-  <a href="/child_table_name">Books</a>
-  <a href="/parents">Authors</a>
+  <%= link_to "Books", "/child_table_name" %></br>
+  <%= link_to "Authors", "/parents" %>
 </nav>
 
 <form action="/parents/<%= @author.id %>" method="post">
