@@ -11,6 +11,4 @@
 
 <%= link_to "Update Book<", "/child_table_name/#{@book.id}/edit" %>
 
-<%= form_with url: "/child_table_name/#{@book.id}", method: :delete, local: true do |form| %>
-  <%= form.submit "Delete" %>
-<% end %>
+<%= button_to "Delete", "/child_table_name/#{@book.id}", method: :delete %>

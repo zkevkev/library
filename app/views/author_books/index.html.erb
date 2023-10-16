@@ -16,7 +16,5 @@
 
   <p><b>Year published: </b><%= book.publish_date %></p>
 
-  <%= form_with url: "/child_table_name/#{book.id}", method: :delete, local: true do |form| %>
-    <%= form.submit "Delete #{book.name}" %>
-  <% end %>
+  <%= button_to "Delete #{book.name}", "/child_table_name/#{book.id}", method: :delete %>
 <% end %>

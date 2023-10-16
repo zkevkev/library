@@ -17,6 +17,4 @@
 
 <%= link_to "Update Author", "/parents/#{@author.id}/edit" %>
 
-<%= form_with url: "/parents/#{@author.id}", method: :delete, local: true do |form| %>
-  <%= form.submit "Delete" %>
-<% end %>
+<%= button_to "Delete", "/parents/#{@author.id}", method: :delete %>
