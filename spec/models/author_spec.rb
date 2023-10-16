@@ -18,5 +18,12 @@ RSpec.describe Author, type: :model do
         expect(@author2.book_count).to eq(1)
       end
     end
+
+    describe '#threshold_sort' do
+      it 'filters to return books published after the date input' do
+        expect(@author1.threshold_sort(1935)).to eq([@book1])
+        require 'pry'; binding.pry
+      end
+    end
   end
 end
