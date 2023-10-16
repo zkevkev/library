@@ -7,7 +7,7 @@
   <%= form.label "Enter a new Book" %></br>
   <%= form.text_field  :name %>
   <%= form.label :name, "name" %></br>
-  <%= form.text_field :publish_date %>
+  <%= form.number_field :publish_date %>
   <%= form.label :publish_date, "publish date" %></br>
   <%= form.radio_button :new_or_old, "new" %>
   <%= form.label :new_or_old, "book is newly printed", :value => "new" %></br>

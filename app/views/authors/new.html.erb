@@ -7,8 +7,8 @@
   <%= form.label "Enter a new author" %></br>
   <%= form.text_field  :name %>
   <%= form.label :name, "name" %></br>
-  <%= form.text_field :copies_sold %>
-  <%= form.label :publish_date, "copies sold" %></br>
+  <%= form.number_field :copies_sold %>
+  <%= form.label :copies_sold, "copies sold" %></br>
   <%= form.radio_button :doa, "dead" %>
   <%= form.label :doa, "author is dead", :value => "dead" %></br>
   <%= form.radio_button :doa, "alive" %>

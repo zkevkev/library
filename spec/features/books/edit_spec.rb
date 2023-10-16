@@ -11,23 +11,23 @@ RSpec.describe 'books show page', type: :feature do
   it 'updates the book record upon submission' do
     visit "/child_table_name/#{@book1.id}"
     click_link "Update Book"
-    fill_in 'name', with: 'Peril at End House'
-    fill_in 'publish_date', with: '1932'
-    page.choose('old')
-    click_button 'Submit'
+    fill_in "name", with: "Peril at End House"
+    fill_in "publish_date", with: "1932"
+    page.choose("book is used")
+    click_button "Submit"
 
-    expect(page).to have_content('Peril at End House') 
+    expect(page).to have_content("Peril at End House") 
     expect(page).to have_content("This copy is new: false")
     expect(page).to have_content("Year published: 1932")
   end
 
-  it 'redirects to the book show page after updating' do
+  it "redirects to the book show page after updating" do
     visit "/child_table_name/#{@book1.id}"
     click_link "Update Book"
-    fill_in 'name', with: 'Peril at End House'
-    fill_in 'publish_date', with: '1932'
-    page.choose('old')
-    click_button 'Submit'
+    fill_in "name", with: "Peril at End House"
+    fill_in "publish_date", with: "1932"
+    page.choose("book is used")
+    click_button "Submit"
 
     expect(assert_current_path("/child_table_name/#{@book1.id}")).to be true
   end

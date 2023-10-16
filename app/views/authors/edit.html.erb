@@ -3,16 +3,15 @@
   <%= link_to "Authors", "/parents" %>
 </nav>
 
-<form action="/parents/<%= @author.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p><b>Edit Author</b></p>
-  <input type='text' id='name' name='name' value='name'/><br/>
-  <input type='number' id='copies_sold' name='copies_sold' min='1'/>
-  <label for='copies_sold'> copies sold</label><br/>
-  <input type='radio' id='dead' name='doa' value='true'>
-  <label for='dead'> author is dead</label><br/>
-  <input type='radio' id='alive' name='doa' value='false'>
-  <label for='alive'> author is alive</label><br/>
-  <button type='submit' name='commit' value='Submit'>Submit</>
-</form>
+<%= form_with url: "/parents/#{@author.id}", method: :patch, local: true do |form| %>
+  <%= form.label "Edit Author" %></br>
+  <%= form.text_field  :name %>
+  <%= form.label :name, "name" %></br>
+  <%= form.number_field :copies_sold %>
+  <%= form.label :copies_sold, "copies sold" %></br>
+  <%= form.radio_button :doa, "dead" %>
+  <%= form.label :doa, "author is dead", :value => "dead" %></br>
+  <%= form.radio_button :doa, "alive" %>
+  <%= form.label :doa, "author is alive", :value => "alive" %></br>
+  <%= form.submit "Submit" %>
+<% end %>

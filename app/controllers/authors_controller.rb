@@ -28,7 +28,7 @@ class AuthorsController < ApplicationController
     author = Author.find(params[:id])
     author.update({
       name: params[:name],
-      dead: params[:dead] == "true",
+      dead: params[:doa] == "dead",
       sales: params[:copies_sold]
     })
 

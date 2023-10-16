@@ -3,16 +3,15 @@
   <%= link_to "Authors", "/parents" %>
 </nav>
 
-<form action="/child_table_name/<%= @book.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p><b>Edit Book</b></p>
-  <input type='text' id='name' name='name' value='name'/><br/>
-  <input type='number' id='publish_date' name='publish_date'/>
-  <label for='publish_date'> publish date</label><br/>
-  <input type='radio' id='new' name='new_or_old' value='true'>
-  <label for='new'> this copy is new</label><br/>
-  <input type='radio' id='old' name='new_or_old' value='false'>
-  <label for='old'> this copy is used</label><br/>
-  <button type='submit' name='commit' value='Submit'>Submit</>
-</form>
+<%= form_with url: "/child_table_name/#{@book.id}", method: :patch, local: true do |form| %>
+  <%= form.label "Edit Book" %></br>
+  <%= form.text_field  :name %>
+  <%= form.label :name, "name" %></br>
+  <%= form.number_field :publish_date %>
+  <%= form.label :publish_date, "copies sold" %></br>
+  <%= form.radio_button :new_or_old, "new" %>
+  <%= form.label :new_or_old, "book is newly printed", :value => "new" %></br>
+  <%= form.radio_button :new_or_old, "old" %>
+  <%= form.label :new_or_old, "book is used", :value => "old" %></br>
+  <%= form.submit "Submit" %>
+<% end %>

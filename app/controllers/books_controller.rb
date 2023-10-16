@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.update({
       name: params[:name],
-      new: params[:new_or_old] == "true",
+      new: params[:new_or_old] == "new",
       publish_date: params[:publish_date]
     })
 
