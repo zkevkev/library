@@ -13,7 +13,7 @@ RSpec.describe 'authors books new page', type: :feature do
 
     fill_in 'name', with: 'Peril at End House'
     fill_in 'publish_date', with: '1932'
-    page.choose('old')
+    page.choose('book is used')
     click_button 'Create Child'
 
     expect(page).to have_content('Peril at End House') 
@@ -26,7 +26,7 @@ RSpec.describe 'authors books new page', type: :feature do
 
     fill_in 'name', with: 'Peril at End House'
     fill_in 'publish_date', with: '1932'
-    page.choose('old')
+    page.choose('book is used')
     click_button 'Create Child'
 
     expect(assert_current_path("/parents/#{@author1.id}/child_table_name")).to be true

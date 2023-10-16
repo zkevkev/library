@@ -9,10 +9,8 @@
 
 <p><b>Year published: </b><%= @book.publish_date %></p>
 
-<a href="/child_table_name/<%= @book.id %>/edit">Update Book</a>
+<%= link_to "Update Book<", "/child_table_name/#{@book.id}/edit" %>
 
-<form action="/child_table_name/<%= @book.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete"/>
-</form>
+<%= form_with url: "/child_table_name/#{@book.id}", method: :delete, local: true do |form| %>
+  <%= form.submit "Delete" %>
+<% end %>

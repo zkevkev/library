@@ -12,7 +12,7 @@ class AuthorBooksController < ApplicationController
     author = Author.find(params[:parent_id])
     book = author.books.create!({
       name: params[:name],
-      new: params[:new] == "true",
+      new: params[:new] == "new",
       publish_date: params[:publish_date]
     })
 
