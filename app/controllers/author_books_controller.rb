@@ -5,7 +5,7 @@ class AuthorBooksController < ApplicationController
     
     if params[:threshold]
       threshold = params[:threshold].to_i
-      @books = @books.threshold_sort(threshold)
+      @books = @books.where("publish_date >= #{threshold}")
     end
 
     @books = @books.order(params[:sort_by])

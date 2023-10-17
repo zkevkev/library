@@ -9,7 +9,8 @@
 
 <%= link_to "Sort Books", :sort_by => "name" %>
 
-<%= form_with url: "/parents/#{@author.id}/child_table_name", sort_by: "threshold", local: true do |form| %>
+<%= form_with url: "/parents/#{@author.id}/child_table_name", method: :get, local: true, data: {turbo_method: :read} do |form| %>
+  <%= form.label "Show Only Books Published After Date" %>
   <%= form.number_field :threshold %>
   <%= form.label :threshold, "publish date" %>
   <%= form.submit "Submit" %>

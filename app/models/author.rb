@@ -5,7 +5,8 @@ class Author < ApplicationRecord
     self.books.count
   end
 
-  def threshold_sort(date)
-    self.books.where("publish_date >= #{date}")
-  end
+  # maybe consider doing this as a class method?
+  # def threshold_sort(date)
+  #   books.where("publish_date >= #{date}")
+  # end
 end
