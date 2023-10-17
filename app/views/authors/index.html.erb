@@ -4,6 +4,12 @@
 
 <h1>Authors</h1>
 
+<%= form_with url: "/parents", method: :get, local: true, data: {turbo_method: :read} do |form| %>
+  <%= form.label "Search by Name" %>
+  <%= form.text_field :search_by_name %>
+  <%= form.submit "Search" %>
+<% end %>
+
 <%= link_to "Sort by Number of Books", :sort_by => "books_counter" %>
 
 <%= link_to "New Author", "/parents/new" %></br></br>

@@ -7,7 +7,7 @@
 
 <%= link_to "Add Book", "/parents/#{@author.id}/child_table_name/new" %></br>
 
-<%= link_to "Sort Books", :sort_by => "name" %>
+<%= link_to "Sort Books", :sort_by => "name" %></br>
 
 <%= form_with url: "/parents/#{@author.id}/child_table_name", method: :get, local: true, data: {turbo_method: :read} do |form| %>
   <%= form.label "Show Only Books Published After Date" %>
