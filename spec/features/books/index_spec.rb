@@ -6,6 +6,7 @@ RSpec.describe 'books index page', type: :feature do
     @author2 = Author.create!(name: 'William Shakespeare', dead: true, sales: 2000000000)
     @book1 = @author1.books.create!(name: 'Death on the Nile', new: false, publish_date: 1937)
     @book2 = @author2.books.create!(name: 'King Lear', new: true, publish_date: 1606)
+    @book3 = @author1.books.create!(name: 'Peril at End House', new: true, publish_date: 1932)
   end
 
   it 'shows an index of books, including their attributes, only if the book is new' do
@@ -40,5 +41,14 @@ RSpec.describe 'books index page', type: :feature do
 
     expect(assert_current_path("/child_table_name")).to be true
     expect(page).not_to have_content(@book2.name)
+  end
+
+  it 'search bar searches for authors by name and returns only authors containing that name' do
+    visit "/child_table_name"
+    fill_in "search_by_name", with: "King Lear"
+    click_button "Search"
+
+    expect(page).to have_content(@book2.name)
+    expect(page).not_to have_content(@book3.name)
   end
 end

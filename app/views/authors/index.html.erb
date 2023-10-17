@@ -4,7 +4,7 @@
 
 <h1>Authors</h1>
 
-<%= form_with url: "/parents", method: :get, local: true, data: {turbo_method: :read} do |form| %>
+<%= form_with url: "/parents", method: :get do |form| %>
   <%= form.label "Search by Name" %>
   <%= form.text_field :search_by_name %>
   <%= form.submit "Search" %>

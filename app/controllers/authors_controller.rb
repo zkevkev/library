@@ -1,6 +1,12 @@
 class AuthorsController < ApplicationController
   def index
     @authors = Author.order(created_at: :desc)
+    
+    if params[:search_by_name] && params[:search_by_name] != ""
+      @authors = @authors.where("name like ?", 
+      "%#{params[:search_by_name]}%")
+    end
+    
     @authors = @authors.order(params[:sort_by])
   end
 

@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+
+    if params[:search_by_name] && params[:search_by_name] != ""
+      @books = @books.where("name like ?", 
+      "%#{params[:search_by_name]}%")
+    end
   end
 
   def show

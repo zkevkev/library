@@ -4,6 +4,12 @@
 
 <h1>New Books</h1>
 
+<%= form_with url: "/child_table_name", method: :get do |form| %>
+  <%= form.label "Search by Name" %>
+  <%= form.text_field :search_by_name %>
+  <%= form.submit "Search" %>
+<% end %>
+
 <% @books.each do |book| %>
   <% if book.new %>
       <%= link_to "#{book.name}", "/child_table_name/#{book.id}" %></br>
