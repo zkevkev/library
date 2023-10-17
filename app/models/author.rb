@@ -2,7 +2,7 @@ class Author < ApplicationRecord
   has_many :books, dependent: :destroy
 
   def book_count
-    self.books.count
+    books.count
   end
 
   # maybe consider doing this as a class method?
