@@ -53,11 +53,11 @@ RSpec.describe 'authors index page', type: :feature do
     expect(page).not_to have_content(@author1.name)
   end
 
-  xit 'sort by books sorts authors by the count of books in stock and shows the count' do
+  it 'sort by number of books sorts authors by the count of books in stock and shows the count' do
     visit "/parents"
     click_link "Sort by Number of Books"
 
-    expect(assert_current_path("/parents?sort_by=count")).to be true
+    expect(assert_current_path("/parents?sort_by=books_counter")).to be true
     expect(@author1.name).to appear_before(@author2.name)
     expect(page).to have_content("Books in stock for #{@author1.name}: 2")
     expect(page).to have_content("Books in stock for #{@author2.name}: 1")
