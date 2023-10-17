@@ -4,11 +4,11 @@
 
 <h1>Authors</h1>
 
-<%= link_to "New Author", "/parents/new" %></br>
+<%= link_to "New Author", "/parents/new" %></br></br>
 
 <% @authors.each do |author| %>
     <%= link_to "#{author.name}", "/parents/#{author.id}" %> created: <%= author.created_at %></br>
     <%= link_to "Update #{author.name}", "/parents/#{author.id}/edit" %>
   
-    <%= button_to "Delete #{author.name}", "/parents/#{author.id}", method: :delete %>
+    <%= button_to "Delete #{author.name}", "/parents/#{author.id}", method: :delete %></br>
 <% end %>

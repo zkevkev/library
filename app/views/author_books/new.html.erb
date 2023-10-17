@@ -3,7 +3,7 @@
   <%= link_to "Authors", "/parents" %>
 </nav>
 
-<%= form_with url: "/parents/#{@author.id}/child_table_name", method: :post, local: true do |form| %>
+<%= form_with url: "/parents/#{@author.id}/child_table_name", method: :post, local: true, data: { turbo: false } do |form| %>
   <%= form.label "Enter a new Book" %></br>
   <%= form.text_field  :name %>
   <%= form.label :name, "name" %></br>

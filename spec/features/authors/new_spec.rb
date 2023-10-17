@@ -9,7 +9,7 @@ RSpec.describe 'authors new page', type: :feature do
     page.choose('alive')
     click_button 'Create Author'
 
-    expect(page).to have_content('Haruki Murakami') 
+    expect(page).to have_content('Haruki Murakami')
   end
   
   it 'redirects to authors index when form is completed' do

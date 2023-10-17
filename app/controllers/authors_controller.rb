@@ -13,7 +13,7 @@ class AuthorsController < ApplicationController
   def create
     author = Author.create!({
       name: params[:name],
-      dead: params[:dead] == "dead",
+      dead: params[:doa] == "dead",
       sales: params[:copies_sold]
     })
 

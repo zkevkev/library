@@ -3,7 +3,7 @@
   <%= link_to "Authors", "/parents" %>
 </nav>
 
-<%= form_with url: "/child_table_name/#{@book.id}", method: :patch, local: true do |form| %>
+<%= form_with url: "/child_table_name/#{@book.id}", method: :patch, local: true, data: { turbo: false } do |form| %>
   <%= form.label "Edit Book" %></br>
   <%= form.text_field  :name %>
   <%= form.label :name, "name" %></br>
