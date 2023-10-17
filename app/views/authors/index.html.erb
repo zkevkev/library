@@ -4,7 +4,7 @@
 
 <h1>Authors</h1>
 
-<%= link_to "New Author", "/parents/new" %>
+<%= link_to "New Author", "/parents/new" %></br>
 
 <% @authors.each do |author| %>
     <%= link_to "#{author.name}", "/parents/#{author.id}" %> created: <%= author.created_at %></br>

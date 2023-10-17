@@ -52,7 +52,7 @@ RSpec.describe 'authors books index page', type: :feature do
 
   it 'only shows books published after date input in threshold sort' do
     visit "/parents/#{@author1.id}/child_table_name"
-    fill_in "threshold", with: "1935"
+    fill_in "publish date", with: "1935"
     click_button "Submit"
 
     expect(page).to have_content(@book1.name)

@@ -9,6 +9,12 @@
 
 <%= link_to "Sort Books", :sort_by => "name" %>
 
+<%= form_with url: "/parents/#{@author.id}/child_table_name", sort_by: "threshold", local: true do |form| %>
+  <%= form.number_field :threshold %>
+  <%= form.label :threshold, "publish date" %>
+  <%= form.submit "Submit" %>
+<% end %>
+
 <% @books.each do |book| %>
   <h3><%= book.name %></h3>
 
